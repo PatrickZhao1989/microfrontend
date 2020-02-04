@@ -44,10 +44,13 @@ module.exports = {
 				loader: 'ts-loader',
 			},
 			{
-				test: /\.js$/,
+				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader'
+				use: {
+					loader: "babel-loader"
+				}
 			}
+
 		],
 	},
 	plugins: [
