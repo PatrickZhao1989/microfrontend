@@ -1,5 +1,5 @@
 import {declareChildApplication, start} from 'single-spa';
-import 'babel-polyfill';
+import '@babel/polyfill';
 
 declareChildApplication('navbar', () => import('./navbar/navbar.app.js'), () => true);
 declareChildApplication('home', () => import('./home/home.app.js'), () => location.pathname === "" || location.pathname === "/");

@@ -35,7 +35,7 @@ module.exports = {
 			},
 			{
 				test: /\.html$/,
-				exclude: /node_modules|svelte/,
+				exclude: /node_modules/,
 				loader: 'html-loader',
 			},
 			{
@@ -45,9 +45,8 @@ module.exports = {
 			},
 			{
 				test: /\.js$/,
-				exclude: /node_modules|inferno|preact/,
-				loader: 'babel-loader',
-				query: getBabelConfig(),
+				exclude: /node_modules/,
+				loader: 'babel-loader'
 			}
 		],
 	},
@@ -55,22 +54,3 @@ module.exports = {
 		new webpack.ContextReplacementPlugin(/\@angular(\\|\/)core(\\|\/)esm5/, path.join(__dirname, './src')),
 	],
 };
-
-function getBabelConfig() {
-	return {
-		presets: [
-			'react',
-			['babel-preset-env', {
-				targets: {
-					"browsers": ["last 2 versions"],
-				},
-			}],
-		],
-		plugins: [
-			'transform-object-rest-spread',
-			'transform-class-properties',
-			'syntax-dynamic-import',
-			'transform-function-bind',
-		],
-	};
-}
